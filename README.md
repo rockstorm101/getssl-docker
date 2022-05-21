@@ -170,7 +170,7 @@ copying private key to /srv/certs/yourdomain.com.key
 getssl: yourdomain.com - rsa certificate obtained but not installed on server
 ```
 
-Restart the web server:
+Restart the web server[^2]:
 
 ```
 docker restart nginx-server
@@ -223,6 +223,11 @@ relevant licenses for all software contained within.
 
 
 [^1]: https://stackoverflow.com/a/41366949
+
+[^2]: If interested in making Nginx automagically reload when the
+      certificates change, see [nginx-autoreload][8].
+
+[8]: https://hub.docker.com/r/rockstorm/nginx-autoreload
 
 
 [1]: https://img.shields.io/github/workflow/status/rockstorm101/getssl-docker/Build%20Docker%20Images
