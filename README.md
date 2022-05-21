@@ -2,9 +2,11 @@
 [![GitHub Workflow Status][1]][2]
 [![Docker Image Size][3]][2]
 
-Simple image to periodically update SSL certificates using [getssl][4].
+Simple Docker image to periodically update SSL certificates using
+[getssl][4].
 
  - Small footprint: less than 5 MB image size.
+ - Runs on ARM devices.
  - Runs automatically at given times.
  - Simple configuration. See [getssl][4].
 
