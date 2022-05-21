@@ -1,10 +1,10 @@
-# getssl Docker Image
+# getssl + cron
 
-Simple image to periodically update SSL certificates using [`getssl`][1].
+Simple image to periodically update SSL certificates using [getssl][1].
 
- - Small footprint: less than 10 MB image size.
+ - Small footprint: less than 5 MB image size.
  - Runs automatically at given times.
- - Simple configuration. See [`getssl`][1].
+ - Simple configuration. See [getssl][1].
 
 [1]: https://github.com/srvrco/getssl
 
@@ -193,13 +193,13 @@ need manual restart/reload to read the new certificates.
 
 ## Credits
 
-How to setup [Alpine Linux][3] containers to run cron jobs by [Jason
-Kulatunga][2].
+How to setup [Alpine Linux][2] containers to run cron jobs by [Jason
+Kulatunga][3].
 
 
 ## License
 
-View [license information][8] for the software contained in this
+View [license information][4] for the software contained in this
 image.
 
 As with all Docker images, these likely also contain other software
@@ -211,11 +211,11 @@ As for any pre-built image usage, it is the image user's
 responsibility to ensure that any use of this image complies with any
 relevant licenses for all software contained within.
 
-[8]: https://github.com/rockstorm101/getssl-docker/blob/master/LICENSE
+[4]: https://github.com/rockstorm101/getssl-docker/blob/master/LICENSE
 
 
 [^1]: https://stackoverflow.com/a/41366949
 
 
-[2]: https://blog.thesparktree.com/cron-in-docker
-[3]: https://alpinelinux.org
+[3]: https://blog.thesparktree.com/cron-in-docker
+[2]: https://alpinelinux.org
