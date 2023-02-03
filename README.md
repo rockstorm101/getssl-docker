@@ -9,6 +9,8 @@ Docker image to periodically update SSL certificates using [getssl][1].
  - Runs automatically at given times.
  - Simple configuration. See [getssl][1].
 
+Image source at: https://github.com/rockstorm101/getssl-docker
+
 [1]: https://github.com/srvrco/getssl
 
 
