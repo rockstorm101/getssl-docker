@@ -1,16 +1,15 @@
 # getssl + cron
-[![GitHub Workflow Status][1]][2]
-[![Docker Image Size][3]][2]
+![Build Status][b1]
+[![Docker Image Size][b2]][bl]
 
-Simple Docker image to periodically update SSL certificates using
-[getssl][4].
+Docker image to periodically update SSL certificates using [getssl][1].
 
  - Small footprint: less than 5 MB image size.
  - Runs on ARM devices.
  - Runs automatically at given times.
- - Simple configuration. See [getssl][4].
+ - Simple configuration. See [getssl][1].
 
-[4]: https://github.com/srvrco/getssl
+[1]: https://github.com/srvrco/getssl
 
 
 ## Usage
@@ -29,7 +28,7 @@ challenge tokens will be placed and a third to give getssl access to
 where the SSL certificates are to be stored.
 
 By default, getssl will be run once a week. Mount a custom `crontab`
-file at `/var/spool/cron/crontabs/root` to change this behaviour.
+file at `/var/spool/cron/crontabs/root` to change this behavior.
 
 ### Run Standalone getssl
 
@@ -41,14 +40,14 @@ docker run --rm -v="$PWD:/root" rockstorm/getssl getssl -c yourdomain.com
 ```
 
 ## Examples
-### Simple Nginx HTTPS Web Server 
+### Nginx + getsll running in parallel
 
 This example consists of two containers running in parallel. Nginx
 serves simple static content over HTTPS and getssl runs next to it
 periodically updating the SSL certificates.
 
 ```
- container       filesystem         container
+ container        filesystem         container
  +--------+   +-----------------+   +--------+
  |        | <-|     webroot     | <-|        |
  | nginx  |   +-----------------+   | getssl |
@@ -170,7 +169,7 @@ copying private key to /srv/certs/yourdomain.com.key
 getssl: yourdomain.com - rsa certificate obtained but not installed on server
 ```
 
-Restart the web server[^2]:
+Restart the web server (or use [nginx-autoreload][2]):
 
 ```
 docker restart nginx-server
@@ -193,21 +192,24 @@ certificate.
 #### 3. Run Automatically
 
 If undisturbed, `getssl` will run once a week. The web server would
-need manual restart/reload to read the new certificates.
+need manual restart/reload to read the new certificates (or have Nginx
+reload automatically, see [nginx-autoreload][2]).
+
+[2]: https://hub.docker.com/r/rockstorm/nginx-autoreload
 
 
 ## Credits
 
-How to setup [Alpine Linux][5] containers to run cron jobs by [Jason
-Kulatunga][6].
+How to setup [Alpine Linux][3] containers to run cron jobs by [Jason
+Kulatunga][4].
 
-[5]: https://alpinelinux.org
-[6]: https://blog.thesparktree.com/cron-in-docker
+[3]: https://alpinelinux.org
+[4]: https://blog.thesparktree.com/cron-in-docker
 
 
 ## License
 
-View [license information][7] for the software contained in this
+View [license information][5] for the software contained in this
 image.
 
 As with all Docker images, these likely also contain other software
@@ -219,17 +221,12 @@ As for any pre-built image usage, it is the image user's
 responsibility to ensure that any use of this image complies with any
 relevant licenses for all software contained within.
 
-[7]: https://github.com/rockstorm101/getssl-docker/blob/master/LICENSE
+[5]: https://github.com/rockstorm101/getssl-docker/blob/master/LICENSE
 
 
 [^1]: https://stackoverflow.com/a/41366949
 
-[^2]: If interested in making Nginx automagically reload when the
-      certificates change, see [nginx-autoreload][8].
 
-[8]: https://hub.docker.com/r/rockstorm/nginx-autoreload
-
-
-[1]: https://img.shields.io/github/workflow/status/rockstorm101/getssl-docker/Build%20Docker%20Images
-[2]: https://hub.docker.com/r/rockstorm/getssl
-[3]: https://img.shields.io/docker/image-size/rockstorm/getssl/latest
+[b1]: https://img.shields.io/github/actions/workflow/status/rockstorm101/getssl-docker/test-build.yml
+[b2]: https://img.shields.io/docker/image-size/rockstorm/getssl?logo=docker
+[bl]: https://hub.docker.com/r/rockstorm/getssl
