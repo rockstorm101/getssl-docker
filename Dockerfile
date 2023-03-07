@@ -11,7 +11,7 @@ RUN set -ex; \
 # Set variables
 # Note the 'v' in default GETSSL_VERSION. If set to 'latest', it will
 # fetch the very last commit on the upstream repository
-ARG GETSSL_VERSION=v2.47
+ARG GETSSL_VERSION=v2.48
 ENV GETSSL_BIN=/usr/bin/getssl \
     SOURCE_URL="https://raw.githubusercontent.com/srvrco/getssl"
 
@@ -23,5 +23,4 @@ RUN set -eux; \
 # Install default cron job
 COPY crontab /var/spool/cron/crontabs/root
 
-#ENTRYPOINT ["/entrypoint.sh"]
 CMD ["crond", "-f", "-l", "2"]
