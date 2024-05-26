@@ -42,7 +42,7 @@ docker run --rm -v="$PWD:/root" rockstorm/getssl getssl -c yourdomain.com
 ```
 
 ## Examples
-### Nginx + getsll running in parallel
+### Nginx + getssl running in parallel
 
 This example consists of two containers running in parallel. Nginx
 serves simple static content over HTTPS and getssl runs next to it
