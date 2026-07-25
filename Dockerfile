@@ -1,4 +1,4 @@
-FROM alpine:3.23.3
+FROM alpine:3.24.1
 
 # Install dependencies
 RUN set -ex; \
@@ -11,7 +11,7 @@ RUN set -ex; \
 # Set variables
 # Note the 'v' in default GETSSL_VERSION. If set to 'latest', it will
 # fetch the very last commit on the upstream repository
-ARG GETSSL_VERSION=v2.49
+ARG GETSSL_VERSION=v2.52
 ENV GETSSL_BIN=/usr/bin/getssl \
     SOURCE_URL="https://raw.githubusercontent.com/srvrco/getssl"
 
